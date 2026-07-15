@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Circuit — Tech News & Opinion</title>
+  <meta name="description" content="The Circuit covers the most important stories in tech, from AI breakthroughs to startup culture. Sharp opinions, delivered daily."/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-top">
+      <a href="index.html" class="site-name">The<span>Circuit</span></a>
+      <div class="masthead-actions">
+        <div class="live-badge">
+          <span class="live-dot"></span> Live
+        </div>
+        <button class="btn-run" id="trigger-btn" onclick="triggerCycle()">
+          ⚡ Run Today's Cycle
+        </button>
+      </div>
+    </div>
+    <nav class="masthead-nav">
+      <a class="nav-link active" href="index.html">All Stories</a>
+      <a class="nav-link" href="users.html">All Users</a>
+      <a class="nav-link" href="about.html">About</a>
+    </nav>
+  </header>
+
+  <div class="page-wrap">
+
+    <!-- Hero Feature -->
+    <div id="hero-section">
+      <!-- Filled by JS -->
+    </div>
+
+    <!-- Latest Stories -->
+    <div class="section-label" style="margin-top: 32px">
+      Latest Stories <span id="story-count"></span>
+    </div>
+
+    <div class="article-grid" id="article-grid">
+      <!-- Skeleton loaders -->
+      <div class="skeleton-card">
+        <div class="skeleton skeleton-block" style="height:180px;width:100%"></div>
+        <div style="padding:20px;display:flex;flex-direction:column;gap:12px">
+          <div class="skeleton skeleton-block" style="height:10px;width:60px"></div>
+          <div class="skeleton skeleton-block" style="height:22px;width:90%"></div>
+          <div class="skeleton skeleton-block" style="height:22px;width:70%"></div>
+          <div class="skeleton skeleton-block" style="height:13px;width:100%"></div>
+        </div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton skeleton-block" style="height:180px;width:100%"></div>
+        <div style="padding:20px;display:flex;flex-direction:column;gap:12px">
+          <div class="skeleton skeleton-block" style="height:10px;width:60px"></div>
+          <div class="skeleton skeleton-block" style="height:22px;width:85%"></div>
+          <div class="skeleton skeleton-block" style="height:22px;width:65%"></div>
+          <div class="skeleton skeleton-block" style="height:13px;width:100%"></div>
+        </div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton skeleton-block" style="height:180px;width:100%"></div>
+        <div style="padding:20px;display:flex;flex-direction:column;gap:12px">
+          <div class="skeleton skeleton-block" style="height:10px;width:60px"></div>
+          <div class="skeleton skeleton-block" style="height:22px;width:80%"></div>
+          <div class="skeleton skeleton-block" style="height:22px;width:55%"></div>
+          <div class="skeleton skeleton-block" style="height:13px;width:100%"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-name">The<span>Circuit</span></div>
+    <div class="footer-text">Tech journalism · Published daily · Est. 2026</div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/blog.js"></script>
+</body>
+</html>

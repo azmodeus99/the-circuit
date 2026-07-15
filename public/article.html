@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Article — The Circuit</title>
+  <meta name="description" content="Tech opinion and analysis from The Circuit."/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-top">
+      <a href="index.html" class="site-name">The<span>Circuit</span></a>
+      <div class="masthead-actions">
+        <div class="live-badge"><span class="live-dot"></span> Live</div>
+      </div>
+    </div>
+    <nav class="masthead-nav">
+      <a class="nav-link" href="index.html">All Stories</a>
+      <a class="nav-link" href="users.html">All Users</a>
+      <a class="nav-link" href="about.html">About</a>
+    </nav>
+  </header>
+
+  <div class="article-page-wrap">
+
+    <!-- Loading state -->
+    <div id="loading-state">
+      <div class="article-back" style="pointer-events:none">← Back</div>
+      <div style="padding:40px 48px">
+        <div class="skeleton skeleton-block" style="height:10px;width:80px;margin-bottom:20px"></div>
+        <div class="skeleton skeleton-block" style="height:52px;width:85%;margin-bottom:12px"></div>
+        <div class="skeleton skeleton-block" style="height:52px;width:65%;margin-bottom:28px"></div>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-top:32px">
+          <div class="skeleton skeleton-block" style="height:16px;width:100%"></div>
+          <div class="skeleton skeleton-block" style="height:16px;width:95%"></div>
+          <div class="skeleton skeleton-block" style="height:16px;width:88%"></div>
+          <div class="skeleton skeleton-block" style="height:16px;width:100%"></div>
+          <div class="skeleton skeleton-block" style="height:16px;width:75%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Article content -->
+    <div id="article-content" style="display:none">
+      <a href="index.html" class="article-back">← Back to all stories</a>
+
+      <!-- Header with color block -->
+      <div class="article-header" id="art-header">
+        <div class="article-header-bg" id="art-header-bg"></div>
+        <div class="article-header-content">
+          <div class="article-cat" id="art-cat">Opinion</div>
+          <h1 class="article-headline" id="art-headline"></h1>
+          <div class="article-byline-bar">
+            <div>
+              <div class="article-author" id="art-author"></div>
+              <div class="article-author-role" id="art-author-role"></div>
+            </div>
+            <div class="article-sep"></div>
+            <div class="article-date" id="art-date"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="art-image-citation" style="display:none; font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-3); margin-top:8px; text-align:right; letter-spacing:0.02em; opacity:0.8;"></div>
+
+      <!-- Body + Sidebar -->
+      <div class="article-body-wrap">
+        <div class="article-body-main">
+          <div class="article-body-text" id="art-body"></div>
+        </div>
+        <div class="article-sidebar">
+          <div class="sidebar-label">Topics</div>
+          <div class="article-keywords" id="art-keywords"></div>
+
+          <div class="sidebar-label" style="margin-top:32px">Source</div>
+          <div id="art-source-info" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3)"></div>
+        </div>
+      </div>
+
+      <!-- Comments -->
+      <div class="comments-wrap">
+        <div class="comments-header">
+          <h2 class="comments-title">Discussion</h2>
+          <span class="comments-count" id="comments-count"></span>
+        </div>
+        <div id="comments-list"></div>
+        
+        <div class="add-comment-box" style="margin-top: 32px; border-top: 1px solid var(--border); padding-top: 24px;">
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-size:20px;text-transform:uppercase;color:#fff;margin-bottom:16px;">Add to discussion</h3>
+          <form id="comment-form" onsubmit="submitComment(event)" style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <input type="text" id="comment-author" placeholder="Your Name" required style="background:var(--bg-2);border:1px solid var(--border);padding:10px 14px;border-radius:4px;color:#fff;font-family:'Outfit',sans-serif;font-size:14px;" />
+              <select id="comment-role" required style="background:var(--bg-2);border:1px solid var(--border);padding:10px 14px;border-radius:4px;color:#fff;font-family:'Outfit',sans-serif;font-size:14px;">
+                <option value="Guest Analyst">Guest Analyst</option>
+                <option value="Tech Enthusiast">Tech Enthusiast</option>
+                <option value="Software Engineer">Software Engineer</option>
+                <option value="Product Manager">Product Manager</option>
+                <option value="Venture Capitalist">Venture Capitalist</option>
+              </select>
+            </div>
+            <textarea id="comment-text" placeholder="Write your thoughts..." required rows="4" style="background:var(--bg-2);border:1px solid var(--border);padding:10px 14px;border-radius:4px;color:#fff;font-family:'Outfit',sans-serif;font-size:14px;resize:vertical;"></textarea>
+            <button type="submit" class="btn-run" style="width:fit-content;align-self:flex-end;margin-top:4px;padding:8px 20px;">Post Comment</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error state -->
+    <div id="error-state" style="display:none">
+      <a href="index.html" class="article-back">← Back to all stories</a>
+      <div style="padding:80px 48px;text-align:center">
+        <div class="empty-title">Story Not Found</div>
+        <div class="empty-desc" style="margin-top:8px">This story may have been removed.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/article.js"></script>
+</body>
+</html>
